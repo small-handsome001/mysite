@@ -1,0 +1,11 @@
+# Windows 缩略图缓存
+Thumbs.db
+Desktop.ini
+
+# 编辑器
+.vscode/
+*.tmp
+*.swp
+
+# 临时截图
+shot*.png

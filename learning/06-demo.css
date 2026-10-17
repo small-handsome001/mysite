@@ -1,0 +1,96 @@
+/* 06-demo.css —— 已经写好，你不用改。
+   注意 .dark 那部分：JS 只是给 body 加个 class，配色全在这里定义。 */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", "PingFang SC",
+               "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333333;
+  background-color: #f5f5f5;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+h1 { font-size: 34px; margin: 0 0 8px; }
+h2 { font-size: 19px; margin: 0 0 8px; }
+
+.intro {
+  color: #666666;
+  margin-bottom: 28px;
+}
+
+.panel {
+  padding: 20px 24px;
+  border: 1px solid #e6e8ec;
+  border-radius: 12px;
+  background-color: #ffffff;
+  margin-bottom: 16px;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.panel p {
+  color: #666666;
+  margin: 0 0 14px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #333333;
+  border-radius: 999px;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+#count {
+  font-weight: 700;
+  font-size: 20px;
+  color: #2f6bff;
+}
+
+
+/* ============================================================
+   暗色主题
+   JS 做的事就一句：document.body.classList.toggle("dark")
+   下面这些颜色会同时生效。
+   ============================================================ */
+body.dark {
+  background-color: #14161a;
+  color: #e6e8ec;
+}
+
+body.dark .intro {
+  color: #9aa1ad;
+}
+
+body.dark .panel {
+  background-color: #1c1f25;
+  border-color: #2c313a;
+}
+
+body.dark .panel p {
+  color: #9aa1ad;
+}
+
+body.dark .btn {
+  background-color: #e6e8ec;
+  border-color: #e6e8ec;
+  color: #14161a;
+}
+
+body.dark #count {
+  color: #6f9bff;
+}
