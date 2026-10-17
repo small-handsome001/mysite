@@ -9,3 +9,6 @@ Desktop.ini
 
 # 临时截图
 shot*.png
+
+# 头像原图（太大，仓库里只放压缩版）
+assets/img/avatar.jpg
