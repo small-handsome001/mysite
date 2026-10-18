@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>网页上的图片，我一次踩了三个坑 | 幽林</title>
+  <link rel="stylesheet" href="../site.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">幽林</div>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../projects.html">项目</a>
+      <a href="../music.html">音乐</a>
+      <a href="../notes.html">笔记</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <article class="note-article">
+
+      <h1>网页上的图片，我一次踩了三个坑</h1>
+      <p class="meta">2026-10-11 · HTML</p>
+
+      <p class="intro">三个都不算难，但每个都让我花了半小时以上。</p>
+
+      <h2>坑一：把 &lt;img&gt; 写进了 &lt;head&gt;</h2>
+
+      <p>页面打开一片空白，图片跑到最上面，其他内容被挤到下面去。</p>
+
+      <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;img src="assets/img/avatar.jpg" /&gt;   ← 错在这里
+&lt;/head&gt;</code></pre>
+
+      <p>
+        <strong>原因</strong>：<code>&lt;head&gt;</code> 里只放「给浏览器看的信息」——
+        编码、标题、样式表链接。凡是<strong>要显示出来的东西</strong>，
+        都得放在 <code>&lt;body&gt;</code> 里。
+        <code>&lt;img&gt;</code> 是显示出来的东西，所以它属于 body。
+      </p>
+
+      <p>
+        <strong>怎么快速发现</strong>：F12 打开 Elements 面板，看图片节点在哪个父节点下面。
+        它长在 <code>&lt;head&gt;</code> 里就是错的。
+      </p>
+
+      <h2>坑二：文件名写了两个 .mp3</h2>
+
+      <p>
+        音频播放器一直是灰的，点播放没反应。
+        打开 F12 的 Network 面板，看到请求的是：
+      </p>
+
+      <pre><code>track-01.mp3.mp3    404 Not Found</code></pre>
+
+      <p>
+        我在资源管理器里把文件改成了 <code>track-01.mp3.mp3</code>，
+        因为我以为「重命名」要把扩展名也一起打上去，结果 Windows 默认隐藏扩展名，
+        我打的那一次扩展名是<strong>多出来的第二次</strong>。
+      </p>
+
+      <p>
+        <strong>教训</strong>：404 永远先去 Network 面板看<strong>实际请求的路径</strong>，
+        不要在代码里瞎改。<code>href</code> 写错一个字母，表现和「文件不存在」一模一样。
+      </p>
+
+      <h2>坑三：一张没有 class 的图片，把卡片撑爆了</h2>
+
+      <p>音乐页那张头像塞进了一个圆角小卡片里，结果卡片被撑得比整屏还高。</p>
+
+      <pre><code>.card {
+  padding: 20px 24px;
+  border-radius: 12px;
+}
+
+/* 图片没有任何宽度限制，就按原始尺寸 720×1162 硬渲染 */</code></pre>
+
+      <p>
+        <strong>原因</strong>：图片不写 <code>width</code>，就按它的<strong>真实像素</strong>显示。
+        原图 720 像素宽，比卡片还宽，卡片自然被撑开。
+      </p>
+
+      <pre><code>img {
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+
+      <p>
+        这三行是我现在所有网站的默认配置：<strong>图片永远不许超出容器</strong>。
+        它比给每张图单独设宽度可靠得多。
+      </p>
+
+      <h2>三个坑的共同点</h2>
+
+      <p>
+        它们都不是「语法写错」，语法完全合法，浏览器不会报错。
+        <strong>网页的很多错误是沉默的</strong>——页面照样打开，只是长得不对。
+      </p>
+
+      <p>
+        所以从这一课开始，我的习惯改成：<strong>任何「不对劲」都先按 F12</strong>，
+        看 Elements 和 Network 两块面板。肉眼调试是猜，看面板是证据。
+      </p>
+
+    </article>
+
+    <p style="margin-top: 40px;"><a href="../notes.html">← 回到笔记列表</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 幽林</p>
+  </footer>
+
+</body>
+</html>

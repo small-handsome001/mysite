@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>写了 width 却不生效：CSS 优先级的第一课 | 幽林</title>
+  <link rel="stylesheet" href="../site.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">幽林</div>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../projects.html">项目</a>
+      <a href="../music.html">音乐</a>
+      <a href="../notes.html">笔记</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <article class="note-article">
+
+      <h1>写了 width: 120px 却不生效：CSS 优先级的第一课</h1>
+      <p class="meta">2026-10-13 · CSS</p>
+
+      <p class="intro">
+        同一个文件里，我明明写了 <code>width: 120px</code>，浏览器就是不认。
+        折腾了二十分钟才发现，是另一条我以为不相关的规则赢了我。
+      </p>
+
+      <h2>现象</h2>
+
+      <p>我的样式表里同时有这两条：</p>
+
+      <pre><code>.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+img.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 20%;
+}</code></pre>
+
+      <p>HTML 是 <code>&lt;img class="avatar" src="..." /&gt;</code>。</p>
+
+      <p>我盯着 <code>.avatar</code> 那一条看，心想「明明写的 120px」。实际渲染出来是 200px。</p>
+
+      <h2>原因：不是顺序，是权重</h2>
+
+      <p>CSS 比较「谁的规则更具体」，不是「谁写在后面」。你这张图有 class，也是 img 标签，所以：</p>
+
+      <table class="simple-table">
+        <tr><th>选择器</th><th>标签</th><th>class</th><th>id</th><th>合计</th></tr>
+        <tr><td><code>.avatar</code></td><td>0</td><td>1</td><td>0</td><td>0-1-0</td></tr>
+        <tr><td><code>img.avatar</code></td><td>1</td><td>1</td><td>0</td><td><strong>1-1-0</strong></td></tr>
+      </table>
+
+      <p>
+        <code>img.avatar</code> 多了一个标签，所以它更具体、权重更高，赢。
+        跟它们谁先写、谁后写没有关系（权重相同时才比先后）。
+      </p>
+
+      <p>
+        <strong>这也解释了我之前的一个困惑</strong>：为什么 CSS 文件里写在前面的规则有时候会覆盖后面的。
+        因为覆盖看的是权重，顺序只在打平时才起作用。
+      </p>
+
+      <h2>怎么一眼看出来</h2>
+
+      <p>F12 → Elements → 点中元素 → 右侧 Styles 面板：</p>
+
+      <pre><code>img.avatar {          ← 生效的，正常显示
+  width: 200px;
+}
+
+.avatar {             ← 被划掉的（划一条横线）
+  width: 120px;       ← 说明它输给了别人
+}</code></pre>
+
+      <p>
+        <strong>被划掉的那条就是输掉的规则。</strong>
+        这个划线功能我一开始以为只是装饰，其实它直接告诉你「谁赢了」。
+      </p>
+
+      <h2>解决办法</h2>
+
+      <p>有两条路，我选了第一条：</p>
+
+      <h3>1. 统一选择器（推荐）</h3>
+      <p>
+        这两条规则本来就是我不同时候写的，重复了。
+        删掉 <code>img.avatar</code>，只留 <code>.avatar</code>，世界清净。
+      </p>
+
+      <h3>2. 用 !important（不推荐）</h3>
+
+      <pre><code>.avatar {
+  width: 120px !important;   /* 能生效，但它会破坏权重逻辑 */
+}</code></pre>
+
+      <p>
+        <code>!important</code> 相当于「我说了算，别管权重」。
+        它确实能救急，但下次你想覆盖它，就得再加一个 <code>!important</code>。
+        用一个换一个，最后整个样式表谁也说不出哪条在生效。
+      </p>
+
+      <h2>我现在的习惯</h2>
+
+      <p>
+        同一个元素在样式表里<strong>只应该有一条主规则</strong>。
+        两条规则管同一个东西，八成是我在某个时刻忘了之前写过。
+      </p>
+
+      <p>
+        遇到「样式没生效」，先别改代码，先按 F12 看那条划线——
+        <strong>它比我的记忆可靠。</strong>
+      </p>
+
+    </article>
+
+    <p style="margin-top: 40px;"><a href="../notes.html">← 回到笔记列表</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 幽林</p>
+  </footer>
+
+</body>
+</html>

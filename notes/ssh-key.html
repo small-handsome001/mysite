@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>服务器说接受你的钥匙，然后拒绝了我 | 幽林</title>
+  <link rel="stylesheet" href="../site.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">幽林</div>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../projects.html">项目</a>
+      <a href="../music.html">音乐</a>
+      <a href="../notes.html">笔记</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <article class="note-article">
+
+      <h1>服务器说「接受你的钥匙」，然后拒绝了我</h1>
+      <p class="meta">2026-10-18 · Git / SSH</p>
+
+      <p class="intro">
+        这是我目前见过最反直觉的报错：两句话摆在一起，前后矛盾。
+      </p>
+
+      <h2>现象</h2>
+
+      <p>配置 GitHub 的 SSH 密钥，公钥明明贴到网页上了，推送还是失败：</p>
+
+      <pre><code>$ ssh -vT git@github.com
+debug1: Offering public key: id_ed25519
+debug1: Server accepts key: id_ed25519        ← 服务器说：这把钥匙我认得
+git@github.com: Permission denied (publickey) ← 然后拒绝了我</code></pre>
+
+      <p>
+        如果公钥没配对，日志里根本不会出现 <code>Server accepts key</code>。
+        它出现了，说明 GitHub 那边匹配上了。<strong>那为什么还是被拒？</strong>
+      </p>
+
+      <h2>真正的含义</h2>
+
+      <p>SSH 登录不是「把钥匙递过去」就完事，而是三步：</p>
+
+      <ol>
+        <li>你的电脑说：「我有一把钥匙，指纹是 XXX」</li>
+        <li>服务器查自己的名单：「查到了，你证明一下你真有私钥」← 这就是 <code>Server accepts key</code></li>
+        <li>你的电脑用<strong>私钥</strong>签一段数据发回去 ← <strong>卡在这一步</strong></li>
+      </ol>
+
+      <p>
+        第 3 步失败了。失败的原因只有一个：<strong>私钥打不开</strong>。
+        而私钥打不开，最常见的原因是——它有密码，但程序没拿到密码。
+      </p>
+
+      <h2>根因：我给私钥设的密码是两个引号</h2>
+
+      <p>生成密钥时我写的是：</p>
+
+      <pre><code>ssh-keygen -t ed25519 -f id_ed25519 -N '""'</code></pre>
+
+      <p>
+        我以为 <code>-N '""'</code> 表示「不要密码」。
+        实际上 PowerShell 把这<strong>两个引号本身</strong>当成了字符串传进去，
+        于是私钥的密码变成了两个字符 <code>"</code> 和 <code>"</code>。
+      </p>
+
+      <p>
+        后面推送时程序拿不到这个密码，签名失败，于是出现了那个矛盾日志。
+      </p>
+
+      <h2>判据</h2>
+
+      <p>以后看到这个组合，直接怀疑私钥：</p>
+
+      <pre><code>Server accepts key  +  Permission denied (publickey)
+        ↓
+ 服务器认得公钥，但你的私钥签不了名
+        ↓
+ 查私钥有没有密码 / 文件是否损坏</code></pre>
+
+      <p>不用去改 GitHub 设置，不用重新贴公钥，不用换端口。那些都是浪费时间。</p>
+
+      <h2>验证方法</h2>
+
+      <p>生成完立刻跑这一行：</p>
+
+      <pre><code>ssh-keygen -y -f ~/.ssh/id_ed25519</code></pre>
+
+      <ul>
+        <li>直接打印出一串 <code>ssh-ed25519 AAAA...</code> → 没有密码，正常 ✅</li>
+        <li>光标停住、等你输入 → 有密码，后面一定会出事 ❌</li>
+      </ul>
+
+      <p>
+        这行命令的作用是「用私钥推导出公钥」。能推出来，说明私钥本身是完好的、不需要密码。
+      </p>
+
+      <h2>顺带一个问题：PowerShell 的空参数</h2>
+
+      <p>
+        PowerShell 调用外部程序时，<code>-N ""</code> 这种空字符串参数很容易被吞掉或者被当字面量。
+        稳妥写法是用 <code>cmd</code> 传：
+      </p>
+
+      <pre><code>cmd /c ssh-keygen -t ed25519 -C "邮箱" -f "路径" -N ""</code></pre>
+
+      <p>
+        这个问题不只影响 ssh-keygen。<strong>凡是「参数里有空字符串」的场景，在 Windows 上都值得检查一次</strong>。
+      </p>
+
+      <h2>结论</h2>
+
+      <p>
+        日志不会撒谎，但它说的话需要翻译。
+        <code>Server accepts key</code> 不是「成功」，它只是「我看好你的钥匙，你还没证明它是你的」。
+      </p>
+
+      <p>
+        现在我的推送是这样：
+      </p>
+
+      <pre><code>$ git push
+To github.com:small-handsome001/mysite.git
+   90cba40..334933f  main -> main
+耗时 4.8 秒，没有输入任何密码</code></pre>
+
+    </article>
+
+    <p style="margin-top: 40px;"><a href="../notes.html">← 回到笔记列表</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 幽林</p>
+  </footer>
+
+</body>
+</html>

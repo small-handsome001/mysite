@@ -175,3 +175,90 @@ audio {
     align-items: flex-start;
   }
 }
+
+/* ---------- 笔记正文 ---------- */
+.note-article h1 {
+  font-size: 30px;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.note-article h2 {
+  margin-top: 36px;
+}
+
+.note-article p,
+.note-article li {
+  color: #444444;
+}
+
+.note-article code {
+  font-family: ui-monospace, Consolas, "Courier New", monospace;
+  font-size: 14px;
+  background-color: #eef1f5;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.note-article pre {
+  background-color: #1f2430;
+  color: #e6e8ec;
+  padding: 16px 18px;
+  border-radius: 10px;
+  overflow-x: auto;
+  line-height: 1.6;
+  margin: 14px 0 20px;
+}
+
+.note-article pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: 13.5px;
+}
+
+.simple-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+  font-size: 15px;
+}
+
+.simple-table th,
+.simple-table td {
+  border: 1px solid #e6e8ec;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.simple-table th {
+  background-color: #f7f8fa;
+}
+
+/* ---------- 手机屏幕 ---------- */
+@media (max-width: 600px) {
+  .card-layout {
+    flex-direction: column;
+  }
+
+  .note-list li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* 窄屏放不下「名字 + 四个链接」，改成上下两行 */
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .nav a {
+    margin-left: 0;
+    margin-right: 18px;
+  }
+
+  .nav a:last-child {
+    margin-right: 0;
+  }
+}
