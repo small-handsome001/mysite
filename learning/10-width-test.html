@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>宽度测试工具 · 第 10 课</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #d8dbe0;
+      font-family: -apple-system, "Microsoft YaHei", sans-serif;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      overflow-x: auto;
+    }
+
+    .col {
+      background: #ffffff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+      flex: 0 0 auto;
+    }
+
+    .label {
+      font-size: 12px;
+      padding: 6px 10px;
+      background: #2b2f38;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .label span {
+      color: #9aa4b2;
+    }
+
+    iframe {
+      border: 0;
+      display: block;
+      background: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="col">
+    <div class="label">320px <span>小屏手机</span></div>
+    <iframe src="../index.html" width="320" height="820"></iframe>
+  </div>
+
+  <div class="col">
+    <div class="label">390px <span>iPhone 常见宽</span></div>
+    <iframe src="../index.html" width="390" height="820"></iframe>
+  </div>
+
+  <div class="col">
+    <div class="label">768px <span>平板竖屏</span></div>
+    <iframe src="../index.html" width="768" height="820"></iframe>
+  </div>
+
+  <div class="col">
+    <div class="label">1024px <span>笔记本</span></div>
+    <iframe src="../index.html" width="1024" height="820"></iframe>
+  </div>
+
+</body>
+</html>
