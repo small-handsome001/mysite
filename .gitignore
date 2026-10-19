@@ -12,3 +12,7 @@ shot*.png
 
 # 头像原图（太大，仓库里只放压缩版）
 assets/img/avatar.jpg
+
+# 生成的文档（源脚本在 learning/build_report.py）
+幽林-*.docx
+幽林-*.pdf
