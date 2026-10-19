@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 11 课 · 练习：把数组变成列表</title>
+  <link rel="stylesheet" href="../site.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">YORIN</div>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../notes.html">笔记</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <h1>练习：把数组变成列表</h1>
+    <p class="intro">
+      数据已经写在下面的 <code>&lt;script&gt;</code> 里了。
+      你只需要把 <code>renderTracks</code> 函数补完，页面就会出现三张卡片。
+    </p>
+
+    <div id="track-list">
+      <p class="meta">（如果这里一直显示这句话，说明 JS 还没跑通）</p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 幽林 · 第 11 课练习</p>
+  </footer>
+
+  <script>
+    // ============ 数据：不要改这里 ============
+    const tracks = [
+      { title: "断らなかった", meta: "原创 · MIDI 编曲 · 2026", file: "../assets/audio/track-01.mp3" },
+      { title: "练习曲 A", meta: "编曲练习 · 示例数据", file: "../assets/audio/track-01.mp3" },
+      { title: "练习曲 B", meta: "编曲练习 · 示例数据", file: "../assets/audio/track-01.mp3" }
+    ];
+
+    // ============ 你要写的部分 ============
+    function renderTracks(list) {
+      // TODO 1：用 list.map(...) 把每个对象变成一段 HTML 字符串
+      //         每段的骨架和 site.css 里的 .track 一致：
+      //         <div class="track">
+      //           <h3>曲名</h3>
+      //           <p class="meta">副标题</p>
+      //           <audio controls src="文件路径"></audio>
+      //         </div>
+      //         提示：用反引号 ` 包住，里面写 ${item.title}
+
+      // TODO 2：用 .join("") 把 map 得到的数组粘成一个字符串，然后 return 它
+
+      return ""; // 写完了把这一行删掉
+    }
+
+    // ============ 渲染：不要改这里 ============
+    const listEl = document.querySelector("#track-list");
+    const html = renderTracks(tracks);
+    listEl.innerHTML = html;
+
+    console.log("渲染完成，卡片数量：", tracks.length);
+  </script>
+
+</body>
+</html>

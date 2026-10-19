@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第 11 课 · 数据生成页面示例</title>
+  <link rel="stylesheet" href="../site.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">YORIN</div>
+    <nav class="nav">
+      <a href="../index.html">首页</a>
+      <a href="../notes.html">笔记</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <h1>把数据变成页面</h1>
+    <p class="intro">
+      下面这些曲目卡片，不是手写的 HTML，是 JS 读 <code>11-demo.json</code> 生成的。
+      改 JSON、刷新，页面自己就变了。
+    </p>
+
+    <!-- 渲染结果都塞进这个空盒子。HTML 里只有这一行，没有任何曲目。 -->
+    <div id="track-list"></div>
+
+    <p class="meta" style="margin-top:24px;">
+      数据来源：<code>learning/11-demo.json</code> ·
+      渲染逻辑：<code>learning/11-demo.js</code>
+    </p>
+
+    <h2>动手试一次</h2>
+    <p class="intro">
+      打开 <code>11-demo.json</code>，复制其中一条，改掉 <code>title</code>，保存，回来按 F5。
+      页面会多出一首——而 HTML 你一个字都没改。
+    </p>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 幽林 · 第 11 课示例</p>
+  </footer>
+
+  <!-- 注意：script 放在 body 最后，保证 #track-list 已经存在 -->
+  <script src="11-demo.js"></script>
+</body>
+</html>
