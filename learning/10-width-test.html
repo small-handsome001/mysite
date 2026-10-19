@@ -40,9 +40,57 @@
       display: block;
       background: #ffffff;
     }
+
+    /* 这个页面是给电脑用的：四档并排看才有意义 */
+    .phone-hint {
+      display: none;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px 22px;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #333333;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .phone-hint h2 {
+      font-size: 17px;
+      margin: 0 0 10px;
+    }
+
+    .phone-hint a {
+      color: #2f6bff;
+      word-break: break-all;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        display: block;
+        overflow-x: hidden;
+      }
+
+      .col {
+        display: none;
+      }
+
+      .phone-hint {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <div class="phone-hint">
+    <h2>请在电脑上打开这个页面</h2>
+    <p>
+      这里的四个并排窗口，是给电脑屏幕用的——一屏同时看 320 / 390 / 768 / 1024
+      四种宽度。手机上只能挤出四个邮票。
+    </p>
+    <p>想在手机上看网站的<b>正常样子</b>，直接开真站：</p>
+    <p><a href="../index.html">打开首页</a>（手机上就是 390px 左右的真实效果）</p>
+  </div>
 
   <div class="col">
     <div class="label">320px <span>小屏手机</span></div>
