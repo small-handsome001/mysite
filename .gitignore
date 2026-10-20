@@ -16,3 +16,7 @@ assets/img/avatar.jpg
 # 生成的文档（源脚本在 learning/build_report.py）
 幽林-*.docx
 幽林-*.pdf
+
+# 手册生成的 PDF/DOCX（源脚本在 learning/build_handbook.py）
+JS学习手册-*.docx
+JS学习手册-*.pdf
