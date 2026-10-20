@@ -52,10 +52,20 @@
       //           <audio controls src="文件路径"></audio>
       //         </div>
       //         提示：用反引号 ` 包住，里面写 ${item.title}
+      const parts = list.map(item => {
+        return `
+          <div class="track">
+            <h3>${item.title}</h3>
+            <p class="meta">${item.meta}</p>
+            <audio controls src="${item.file}"></audio>
+          </div>
+        `;        
+      });
+      
+      
 
       // TODO 2：用 .join("") 把 map 得到的数组粘成一个字符串，然后 return 它
-
-      return ""; // 写完了把这一行删掉
+      return parts.join("");
     }
 
     // ============ 渲染：不要改这里 ============

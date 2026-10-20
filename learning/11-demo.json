@@ -5,12 +5,12 @@
     "file": "../assets/audio/track-01.mp3"
   },
   {
-    "title": "Demo1",
+    "title": "第二首",
     "meta": "编曲练习 · 2026",
-    "file": "../assets/audio/track-01.mp3"
+    "file": "./assets/audio/track-02.mp3"
   },
   {
-    "title": "Demo1",
+    "title": "第三首",
     "meta": "编曲练习 · 2026",
     "file": "../assets/audio/track-01.mp3"
   }
