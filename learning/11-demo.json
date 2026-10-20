@@ -5,7 +5,12 @@
     "file": "../assets/audio/track-01.mp3"
   },
   {
-    "title": "示例曲二（示例数据）",
+    "title": "Demo1",
+    "meta": "编曲练习 · 2026",
+    "file": "../assets/audio/track-01.mp3"
+  },
+  {
+    "title": "Demo1",
     "meta": "编曲练习 · 2026",
     "file": "../assets/audio/track-01.mp3"
   }
