@@ -55,11 +55,22 @@ img {
   font-weight: 700;
   letter-spacing: 1.5px;
   color: #333333;
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
 }
 
 .nav a {
   margin-left: 20px;
   font-size: 15px;
+}
+
+/* 当前所在页面的导航项 */
+.nav a.active {
+  color: #333333;
+  font-weight: 600;
 }
 
 
