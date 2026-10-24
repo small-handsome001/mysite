@@ -87,14 +87,30 @@ img {
   background-color: #eceef2;
 }
 
-.nav a {
-  margin-left: 20px;
-  font-size: 15px;
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
-/* 当前所在页面的导航项 */
+.nav a {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 15px;
+  color: #4a5160;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* 悬浮：浅灰药丸，不要下划线 */
+.nav a:hover {
+  text-decoration: none;
+  color: #15171c;
+  background-color: #eceef2;
+}
+
+/* 当前所在页面 */
 .nav a.active {
-  color: #333333;
+  color: #15171c;
   font-weight: 600;
 }
 
@@ -334,13 +350,12 @@ audio {
     gap: 8px;
   }
 
-  .nav a {
-    margin-left: 0;
-    margin-right: 18px;
+  .nav {
+    margin-left: -12px;
   }
 
-  .nav a:last-child {
-    margin-right: 0;
+  .nav a {
+    padding: 6px 10px;
   }
 }
 
@@ -433,4 +448,18 @@ body.dark .nav a.active {
 
 body.dark .note-article pre {
   background-color: #0f1116;
+}
+
+/* 暗色下的导航 */
+body.dark .nav a {
+  color: #b9bfc9;
+}
+
+body.dark .nav a:hover {
+  color: #f2f4f7;
+  background-color: #272c35;
+}
+
+body.dark .nav a.active {
+  color: #f2f4f7;
 }
