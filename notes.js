@@ -14,6 +14,7 @@ fetch("assets/notes.json")
         <li>
           <span class="note-date">${note.date}</span>
           <a href="${note.url}">${note.title}</a>
+          <span class="note-tag">${note.tags[0]}</span>
         </li>
       `;
     }).join("");

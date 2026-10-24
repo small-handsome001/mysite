@@ -2,16 +2,20 @@
   {
     "date": "2026-10-18",
     "title": "服务器说「接受你的钥匙」，然后拒绝了我",
-    "url": "notes/ssh-key.html"
+    "url": "notes/ssh-key.html",
+    "tags": ["SSH"]
   },
   {
     "date": "2026-10-13",
     "title": "写了 width: 120px 却不生效：CSS 优先级的第一课",
-    "url": "notes/css-specificity.html"
+    "url": "notes/css-specificity.html",
+    "tags": ["CSS"]
   },
   {
     "date": "2026-10-11",
     "title": "网页上的图片，我一次踩了三个坑",
-    "url": "notes/images.html"
+    "url": "notes/images.html",
+    "tags": ["HTML"]
   }
 ]
+

@@ -134,6 +134,17 @@ img {
   color: #999999;
 }
 
+/* 标签：靠右，灰底小圆角 */
+.note-tag {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: #666666;
+  background-color: #eef1f5;
+  padding: 1px 9px;
+  border-radius: 10px;
+}
+
 
 /* ---------- 页脚 ---------- */
 .site-footer {
