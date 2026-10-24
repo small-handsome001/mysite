@@ -11,7 +11,7 @@ const NAV_ITEMS = [
 ];
 
 const LOGO = "YORIN";
-const FOOTER_TEXT = "© 2026 幽林";
+const FOOTER_TEXT = "© 2026 幽林 · 手写 HTML";
 
 // ============ 2. 算出「当前在第几层目录」============
 // 根目录的页面：index.html      → prefix = ""
