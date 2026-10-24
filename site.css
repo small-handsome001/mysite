@@ -62,6 +62,31 @@ img {
   text-decoration: none;
 }
 
+/* 名字 + 明暗按钮并排 */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #777777;
+  line-height: 0;
+}
+
+.theme-toggle:hover {
+  color: #333333;
+  background-color: #eceef2;
+}
+
 .nav a {
   margin-left: 20px;
   font-size: 15px;
@@ -323,4 +348,89 @@ audio {
   .card  { padding: 16px 18px; }
   .track { padding: 16px 18px; }
   body   { padding: 0 16px 32px; }   /* 手机上左右留白少一点 */
+}
+/* ============================================================
+   暗色模式
+   body 上有 .dark 时，下面这些规则会覆盖上面的亮色设定
+   ============================================================ */
+body.dark {
+  background-color: #15171c;
+  color: #e6e8ec;
+}
+
+body.dark p,
+body.dark .note-article p,
+body.dark .note-article li {
+  color: #b9bfc9;
+}
+
+body.dark a {
+  color: #7aa7ff;
+}
+
+body.dark .site-header,
+body.dark .site-footer,
+body.dark .note-list,
+body.dark .note-list li {
+  border-color: #2b3038;
+}
+
+body.dark .logo,
+body.dark .theme-toggle {
+  color: #f2f4f7;
+}
+
+body.dark .theme-toggle:hover {
+  background-color: #272c35;
+}
+
+body.dark .card,
+body.dark .track,
+body.dark .filter-btn {
+  background-color: #1c1f26;
+  border-color: #2b3038;
+}
+
+body.dark .filter-btn {
+  color: #c3c9d4;
+}
+
+body.dark .filter-btn:hover {
+  border-color: #4a515e;
+}
+
+body.dark .filter-btn.is-active {
+  background-color: #e6e8ec;
+  border-color: #e6e8ec;
+  color: #15171c;
+}
+
+body.dark .meta,
+body.dark .note-date,
+body.dark .site-footer,
+body.dark .note-article .meta {
+  color: #8b93a1;
+}
+
+body.dark .note-tag,
+body.dark .note-article code {
+  background-color: #272c35;
+  color: #9aa3b2;
+}
+
+body.dark .simple-table th {
+  background-color: #1c1f26;
+}
+
+body.dark .simple-table th,
+body.dark .simple-table td {
+  border-color: #2b3038;
+}
+
+body.dark .nav a.active {
+  color: #f2f4f7;
+}
+
+body.dark .note-article pre {
+  background-color: #0f1116;
 }
