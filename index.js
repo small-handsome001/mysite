@@ -3,9 +3,12 @@ const latestEl = document.querySelector("#latest");
 
 function row(kind, text, href) {
   return `
-    <li class="latest-item">
-      <span class="latest-kind">${kind}</span>
-      <a class="latest-text" href="${href}">${text}</a>
+    <li>
+      <a class="latest-item" href="${href}">
+        <span class="latest-kind">${kind}</span>
+        <span class="latest-text">${text}</span>
+        <span class="latest-arrow">→</span>
+      </a>
     </li>
   `;
 }
@@ -31,9 +34,7 @@ Promise.all([
     }
 
     if (rank.books.length) {
-      rows.push(
-        row("榜单", rank.books[0].title + " 领跑月票", "rank.html")
-      );
+      rows.push(row("榜单", rank.books[0].title + " 领跑月票", "rank.html"));
     }
 
     latestEl.innerHTML = `<ul class="latest-list">${rows.join("")}</ul>`;

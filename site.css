@@ -579,8 +579,17 @@ body.dark .rank-bar i {
 }
 
 .entry-more {
-  font-size: 14px;
-  color: #2f6bff;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #8b93a1;
+  transition: color .15s ease, gap .15s ease;
+}
+
+.entry:hover .entry-more {
+  color: #333333;
+  gap: 8px;
 }
 
 /* ---------- 首页「最新」 ---------- */
@@ -591,12 +600,24 @@ body.dark .rank-bar i {
   border-top: 1px solid #e6e8ec;
 }
 
+.latest-list li {
+  border-bottom: 1px solid #e6e8ec;
+}
+
 .latest-item {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid #e6e8ec;
+  padding: 10px 8px;
+  margin: 0 -8px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color .15s ease;
+}
+
+.latest-item:hover {
+  text-decoration: none;
+  background-color: #eceef2;
 }
 
 .latest-kind {
@@ -606,10 +627,26 @@ body.dark .rank-bar i {
 }
 
 .latest-text {
+  flex: 1;
+  min-width: 0;
   font-size: 15px;
+  color: #333333;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.latest-arrow {
+  flex: 0 0 auto;
+  font-size: 14px;
+  color: #b9bfc9;
+  opacity: 0;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.latest-item:hover .latest-arrow {
+  opacity: 1;
+  transform: translateX(2px);
 }
 
 /* 暗色 */
@@ -632,4 +669,20 @@ body.dark .latest-item {
 
 body.dark .latest-kind {
   color: #8b93a1;
+}
+
+body.dark .entry:hover .entry-more {
+  color: #e6e8ec;
+}
+
+body.dark .latest-item:hover {
+  background-color: #1c1f26;
+}
+
+body.dark .latest-text {
+  color: #e6e8ec;
+}
+
+body.dark .latest-arrow {
+  color: #6b7381;
 }
