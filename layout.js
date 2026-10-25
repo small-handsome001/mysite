@@ -5,7 +5,6 @@ const NAV_ITEMS = [
   { href: "index.html", text: "首页" },
   { href: "projects.html", text: "项目" },
   { href: "music.html", text: "音乐" },
-  { href: "rank.html", text: "榜单" },
   { href: "notes.html", text: "笔记" },
   { href: "about.html", text: "关于" }
 ];
@@ -27,6 +26,17 @@ function getCurrent() {
   const path = location.pathname;
   if (path.indexOf("/notes/") !== -1) return "notes.html";
   return path.split("/").pop() || "index.html";
+}
+
+// 项目子页面用的简化导航：页面上写 <body data-nav="project">
+const NAV_PROJECT = [
+  { href: "projects.html", text: "返回" },
+  { href: "rank.html", text: "榜单" }
+];
+
+function getNavItems() {
+  if (document.body.dataset.nav === "project") return NAV_PROJECT;
+  return NAV_ITEMS;
 }
 
 // ============ 4. 两个图标（SVG，跟着文字大小走）============
@@ -52,7 +62,7 @@ const ICON_MOON = `
 function renderHeader(prefix) {
   const current = getCurrent();
 
-  const links = NAV_ITEMS.map(function (item) {
+  const links = getNavItems().map(function (item) {
     const isActive = item.href === current;
     const cls = isActive ? ' class="active"' : "";
     return `<a href="${prefix}${item.href}"${cls}>${item.text}</a>`;
