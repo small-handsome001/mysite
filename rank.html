@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>幽林 | 起点月票榜</title>
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+
+    <div id="site-header"></div>
+
+  <main class="wrap">
+
+    <h1>起点月票榜</h1>
+    <p class="intro">
+      自己写爬虫抓的榜单。数据来自起点公开页面，脚本在
+      <a href="https://github.com/small-handsome001/mysite/blob/main/tools/qidian_rank.py">tools/qidian_rank.py</a>。
+    </p>
+
+    <p class="meta" id="rank-updated">加载中 ...</p>
+
+    <div id="rank-list"></div>
+
+    <p class="meta" style="margin-top: 24px;">
+      抓取说明：只取前 20 条，不翻页、不高频请求。月票数是字体反爬解出来的，
+      字体每天都换，所以必须现抓现解。
+    </p>
+
+  </main>
+
+    <div id="site-footer"></div>
+
+<script src="layout.js"></script>
+<script src="rank.js"></script>
+</body>
+</html>

@@ -23,3 +23,7 @@ JS学习手册-*.pdf
 网页开发速查卡-*.docx
 网页开发速查卡.docx
 网页开发速查卡.pdf
+
+# 爬虫 cookie（含登录态，绝不提交）
+tools/cookie.json
+tools/.font.woff

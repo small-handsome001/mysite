@@ -463,3 +463,96 @@ body.dark .nav a:hover {
 body.dark .nav a.active {
   color: #f2f4f7;
 }
+
+/* ---------- 起点月票榜 ---------- */
+.rank-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.rank-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e6e8ec;
+}
+
+.rank-no {
+  flex: 0 0 28px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 700;
+  color: #9aa3b2;
+  line-height: 1.6;
+}
+
+.rank-item:nth-child(1) .rank-no,
+.rank-item:nth-child(2) .rank-no,
+.rank-item:nth-child(3) .rank-no {
+  color: #d4762a;
+}
+
+.rank-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.rank-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.rank-title {
+  font-size: 16px;
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rank-tickets {
+  flex: 0 0 auto;
+  font-size: 14px;
+  color: #666666;
+  font-variant-numeric: tabular-nums;
+}
+
+.rank-bar {
+  margin-top: 8px;
+  height: 6px;
+  background-color: #eceef2;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.rank-bar i {
+  display: block;
+  height: 100%;
+  background-color: #4a5160;
+  border-radius: 3px;
+}
+
+/* 暗色 */
+body.dark .rank-item {
+  border-color: #2b3038;
+}
+
+body.dark .rank-title {
+  color: #e6e8ec;
+}
+
+body.dark .rank-tickets {
+  color: #b9bfc9;
+}
+
+body.dark .rank-bar {
+  background-color: #272c35;
+}
+
+body.dark .rank-bar i {
+  background-color: #8b93a1;
+}
