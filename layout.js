@@ -30,7 +30,7 @@ function getCurrent() {
 
 // 项目子页面用的简化导航：页面上写 <body data-nav="project">
 const NAV_PROJECT = [
-  { href: "projects.html", text: "返回" },
+  { href: "projects.html", text: "← 返回" },
   { href: "rank.html", text: "榜单" }
 ];
 
