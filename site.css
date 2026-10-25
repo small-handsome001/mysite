@@ -556,3 +556,80 @@ body.dark .rank-bar {
 body.dark .rank-bar i {
   background-color: #8b93a1;
 }
+
+/* ---------- 首页入口卡 ---------- */
+.entry {
+  display: block;
+  text-decoration: none;
+  transition: border-color .15s ease, transform .15s ease;
+}
+
+.entry:hover {
+  text-decoration: none;
+  border-color: #c9ced6;
+  transform: translateY(-1px);
+}
+
+.entry h3 {
+  color: #333333;
+}
+
+.entry p {
+  margin-bottom: 10px;
+}
+
+.entry-more {
+  font-size: 14px;
+  color: #2f6bff;
+}
+
+/* ---------- 首页「最新」 ---------- */
+.latest-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #e6e8ec;
+}
+
+.latest-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e6e8ec;
+}
+
+.latest-kind {
+  flex: 0 0 40px;
+  font-size: 12px;
+  color: #999999;
+}
+
+.latest-text {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 暗色 */
+body.dark .entry h3 {
+  color: #e6e8ec;
+}
+
+body.dark .entry:hover {
+  border-color: #4a515e;
+}
+
+body.dark .entry-more {
+  color: #7aa7ff;
+}
+
+body.dark .latest-list,
+body.dark .latest-item {
+  border-color: #2b3038;
+}
+
+body.dark .latest-kind {
+  color: #8b93a1;
+}
