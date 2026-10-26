@@ -97,7 +97,7 @@ const THEME_KEY = "site-theme";
 
 function applyTheme(theme) {
   const isDark = theme === "dark";
-  document.body.classList.toggle("dark", isDark);
+  document.documentElement.classList.toggle("dark", isDark);
 
   const btn = document.querySelector("#theme-toggle");
   if (btn) {
@@ -120,7 +120,7 @@ function initTheme() {
   if (!btn) return;
 
   btn.addEventListener("click", function () {
-    const next = document.body.classList.contains("dark") ? "light" : "dark";
+    const next = document.documentElement.classList.contains("dark") ? "light" : "dark";
     applyTheme(next);
     localStorage.setItem(THEME_KEY, next);
   });

@@ -5,10 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>网页上的图片，我一次踩了三个坑 | 幽林</title>
   <link rel="stylesheet" href="../site.css" />
+  <script>
+    // 在浏览器绘制前就决定明暗，避免刷新时先白后黑
+    try {
+      var t = localStorage.getItem("site-theme");
+      if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
 
-    <div id="site-header"></div>
+    <div id="site-header">    <header class="site-header">
+      <div class="brand">
+        <a class="logo" href="../index.html">YORIN</a>
+      </div>
+      <nav class="nav">
+        <a href="../index.html">首页</a>
+        <a href="../projects.html">项目</a>
+        <a href="../music.html">音乐</a>
+        <a href="../notes.html">笔记</a>
+        <a href="../about.html">关于</a>
+      </nav>
+    </header>
+    </div>
 
   <main class="wrap">
     <article class="note-article">
@@ -102,7 +123,10 @@
     <p style="margin-top: 40px;"><a href="../notes.html">← 回到笔记列表</a></p>
   </main>
 
-    <div id="site-footer"></div>
+    <div id="site-footer">    <footer class="site-footer">
+      <p>© 2026 幽林 · 手写 HTML</p>
+    </footer>
+    </div>
 
 <script src="../layout.js"></script>
 </body>

@@ -368,99 +368,99 @@ audio {
    暗色模式
    body 上有 .dark 时，下面这些规则会覆盖上面的亮色设定
    ============================================================ */
-body.dark {
+html.dark body {
   background-color: #15171c;
   color: #e6e8ec;
 }
 
-body.dark p,
-body.dark .note-article p,
-body.dark .note-article li {
+html.dark p,
+html.dark .note-article p,
+html.dark .note-article li {
   color: #b9bfc9;
 }
 
-body.dark a {
+html.dark a {
   color: #7aa7ff;
 }
 
-body.dark .site-header,
-body.dark .site-footer,
-body.dark .note-list,
-body.dark .note-list li {
+html.dark .site-header,
+html.dark .site-footer,
+html.dark .note-list,
+html.dark .note-list li {
   border-color: #2b3038;
 }
 
-body.dark .logo,
-body.dark .theme-toggle {
+html.dark .logo,
+html.dark .theme-toggle {
   color: #f2f4f7;
 }
 
-body.dark .theme-toggle:hover {
+html.dark .theme-toggle:hover {
   background-color: #272c35;
 }
 
-body.dark .card,
-body.dark .track,
-body.dark .filter-btn {
+html.dark .card,
+html.dark .track,
+html.dark .filter-btn {
   background-color: #1c1f26;
   border-color: #2b3038;
 }
 
-body.dark .filter-btn {
+html.dark .filter-btn {
   color: #c3c9d4;
 }
 
-body.dark .filter-btn:hover {
+html.dark .filter-btn:hover {
   border-color: #4a515e;
 }
 
-body.dark .filter-btn.is-active {
+html.dark .filter-btn.is-active {
   background-color: #e6e8ec;
   border-color: #e6e8ec;
   color: #15171c;
 }
 
-body.dark .meta,
-body.dark .note-date,
-body.dark .site-footer,
-body.dark .note-article .meta {
+html.dark .meta,
+html.dark .note-date,
+html.dark .site-footer,
+html.dark .note-article .meta {
   color: #8b93a1;
 }
 
-body.dark .note-tag,
-body.dark .note-article code {
+html.dark .note-tag,
+html.dark .note-article code {
   background-color: #272c35;
   color: #9aa3b2;
 }
 
-body.dark .simple-table th {
+html.dark .simple-table th {
   background-color: #1c1f26;
 }
 
-body.dark .simple-table th,
-body.dark .simple-table td {
+html.dark .simple-table th,
+html.dark .simple-table td {
   border-color: #2b3038;
 }
 
-body.dark .nav a.active {
+html.dark .nav a.active {
   color: #f2f4f7;
 }
 
-body.dark .note-article pre {
+html.dark .note-article pre {
   background-color: #0f1116;
 }
 
 /* 暗色下的导航 */
-body.dark .nav a {
+html.dark .nav a {
   color: #b9bfc9;
 }
 
-body.dark .nav a:hover {
+html.dark .nav a:hover {
   color: #f2f4f7;
   background-color: #272c35;
 }
 
-body.dark .nav a.active {
+html.dark .nav a.active {
   color: #f2f4f7;
 }
 
@@ -537,23 +537,23 @@ body.dark .nav a.active {
 }
 
 /* 暗色 */
-body.dark .rank-item {
+html.dark .rank-item {
   border-color: #2b3038;
 }
 
-body.dark .rank-title {
+html.dark .rank-title {
   color: #e6e8ec;
 }
 
-body.dark .rank-tickets {
+html.dark .rank-tickets {
   color: #b9bfc9;
 }
 
-body.dark .rank-bar {
+html.dark .rank-bar {
   background-color: #272c35;
 }
 
-body.dark .rank-bar i {
+html.dark .rank-bar i {
   background-color: #8b93a1;
 }
 
@@ -650,39 +650,39 @@ body.dark .rank-bar i {
 }
 
 /* 暗色 */
-body.dark .entry h3 {
+html.dark .entry h3 {
   color: #e6e8ec;
 }
 
-body.dark .entry:hover {
+html.dark .entry:hover {
   border-color: #4a515e;
 }
 
-body.dark .entry-more {
+html.dark .entry-more {
   color: #7aa7ff;
 }
 
-body.dark .latest-list,
-body.dark .latest-item {
+html.dark .latest-list,
+html.dark .latest-item {
   border-color: #2b3038;
 }
 
-body.dark .latest-kind {
+html.dark .latest-kind {
   color: #8b93a1;
 }
 
-body.dark .entry:hover .entry-more {
+html.dark .entry:hover .entry-more {
   color: #e6e8ec;
 }
 
-body.dark .latest-item:hover {
+html.dark .latest-item:hover {
   background-color: #1c1f26;
 }
 
-body.dark .latest-text {
+html.dark .latest-text {
   color: #e6e8ec;
 }
 
-body.dark .latest-arrow {
+html.dark .latest-arrow {
   color: #6b7381;
 }
