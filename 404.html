@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>页面不存在 | 幽林</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/mysite/favicon-32.png" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .box { text-align: center; padding: 24px; max-width: 460px; }
+    h1 { font-size: 64px; margin: 0 0 8px; letter-spacing: 2px; }
+    p { color: #666; line-height: 1.8; margin: 0 0 28px; }
+    a {
+      display: inline-block;
+      margin: 0 6px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid #e6e8ec;
+      background: #fff;
+      color: #333;
+      text-decoration: none;
+      font-size: 15px;
+      transition: .15s;
+    }
+    a:hover { border-color: #c9ced8; transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>404</h1>
+    <p>
+      这个地址没有页面。<br />
+      可能是链接写错了，也可能是我改结构时挪走了。
+    </p>
+    <a href="#" data-go="">首页</a>
+    <a href="#" data-go="projects.html">项目</a>
+    <a href="#" data-go="notes.html">笔记</a>
+  </div>
+
+  <script>
+    // 404 可能出现在任何深度，用当前路径推出站点根
+    var path = location.pathname;
+    var base = path.indexOf("/mysite/") === 0 ? "/mysite/" : "/";
+    var links = document.querySelectorAll("a[data-go]");
+    for (var i = 0; i < links.length; i++) {
+      links[i].href = base + links[i].getAttribute("data-go");
+    }
+    document.querySelector("link[rel=icon]").href = base + "favicon-32.png";
+  </script>
+</body>
+</html>
