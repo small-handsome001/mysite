@@ -8,5 +8,10 @@
     "title": "主歌 1",
     "meta": "《断らなかった》主歌部分 · 人声混缩 · 2026 · 0:40",
     "file": "assets/audio/track-02.mp3"
+  },
+  {
+    "title": "试混 1（Teto 人声）",
+    "meta": "《断らなかった》全曲试混 · 2026.11 · 2:53",
+    "file": "assets/audio/track-03.mp3"
   }
 ]
